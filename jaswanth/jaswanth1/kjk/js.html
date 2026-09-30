@@ -1,0 +1,103 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Marks</title>
+
+    <style>
+        #area {
+            border: 3px solid red;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Student Marks</h2>
+
+    <!-- Student Name -->
+    <input type="text" id="name" placeholder="Enter student name">
+    <br><br>
+
+    <!-- Marks -->
+    <input type="number" id="telugu" placeholder="Telugu marks">
+    <br><br>
+
+    <input type="number" id="english" placeholder="English marks">
+    <br><br>
+
+    <input type="number" id="hindi" placeholder="Hindi marks">
+    <br><br>
+
+    <button onclick="calculateMarks()">Calculate</button>
+
+    <br><br>
+
+    <textarea id="area" cols="30" rows="8"
+        placeholder="Result will appear here"></textarea>
+
+    <script>
+
+        function calculateMarks() {
+
+            let name = document.getElementById("name").value;
+
+            let telugu = Number(document.getElementById("telugu").value);
+            let english = Number(document.getElementById("english").value);
+            let hindi = Number(document.getElementById("hindi").value);
+
+            // Calculate total
+            let total = telugu + english + hindi;
+
+            // Calculate average
+            let average = total / 3;
+
+            // Find grade
+            let grade = "";
+
+            if (average >= 90) {
+                grade = "A";
+            }
+            else if (average >= 70) {
+                grade = "B";
+            }
+            else if (average >= 50) {
+                grade = "C";
+            }
+            else if (average >= 35) {
+                grade = "D";
+            }
+            else {
+                grade = "F";
+            }
+
+            // Pass or Fail
+            let result;
+
+            if (total >= 150) {
+                result = "Passed";
+            }
+            else {
+                result = "Failed";
+            }
+
+            // Display result
+            document.getElementById("area").value =
+                "Student Name: " + name +
+                "\nTelugu: " + telugu +
+                "\nEnglish: " + english +
+                "\nHindi: " + hindi +
+                "\nTotal: " + total +
+                "\nAverage: " + average.toFixed(2) +
+                "\nGrade: " + grade +
+                "\nResult: " + result;
+        }
+
+    </script>
+
+</body>
+</html>
+```
